@@ -18,7 +18,7 @@ export default function Layout({ children }) {
     return (
         <SideMenu
             // menuPosition={direction}
-            // menu={<Menu />}
+            menu={<Menu />}
             isOpen={isOpen}
             onChange={isOpen => setIsOpen(isOpen)}>
             <SafeAreaView>

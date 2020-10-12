@@ -28,9 +28,9 @@ export default function Header({ toggleMenu }) {
 
 const styles = StyleSheet.create({
     menu: {
-        marginTop:-40,
-        height: 80,
-        backgroundColor: Colors.lightBlue,
+        marginTop:0,
+        height: 90,
+        backgroundColor: "#ff6100",
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold',
         color: Colors.blue,
-        paddingTop:Spacing.large,
+        // paddingTop:Spacing.large,
     },
     bar: {
         height: 3,
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'space-between',
         height: 20,
-        marginTop:Spacing.large,
+        // marginTop:Spacing.large,
     },
     back: {
         color: Colors.blue,

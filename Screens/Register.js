@@ -8,10 +8,13 @@ import { color } from 'react-native-reanimated';
 
 // 0798449809
 
-export default function Login() {
+export default function Register() {
 
-    const [user, onChangeUser] = React.useState(null);
+    const [User, onChangeUser] = React.useState(null);
     const [Pass, onChangePass] = React.useState(null);
+    const [ConfirmPass, onChangeConPass] = React.useState(null);
+    const [Email, onChangeEmail] = React.useState(null);
+    const [Phone, onChangePhone] = React.useState(null);
 
     return (
         <Layout>
@@ -21,7 +24,7 @@ export default function Login() {
                          style={styles.centered}
                          onChangeText={text => onChangeUser(text)}
                          placeholder="  Username"
-                         value={user}
+                         value={User}
                         />
                 </View>
                 <View style={styles.centeredContinar}>
@@ -33,10 +36,32 @@ export default function Login() {
                          value={Pass}
                         />
                 </View>
+                <View style={styles.centeredContinar}>
+                    <TextInput
+                         secureTextEntry
+                         style={styles.centered}
+                         onChangeText={text => onChangeConPass(text)}
+                         placeholder=" Confirm Password"
+                         value={ConfirmPass}
+                        />
+                </View>
+                <View style={styles.centeredContinar}>
+                    <TextInput
+                         style={styles.centered}
+                         onChangeText={text => onChangeEmail(text)}
+                         placeholder="  Email"
+                         value={Email}
+                        />
+                </View>
+                <View style={styles.centeredContinar}>
+                    <TextInput
+                         style={styles.centered}
+                         onChangeText={text => onChangePhone(text)}
+                         placeholder="  Phone"
+                         value={Phone}
+                        />
+                </View>
                 <View style={styles.ButContinar}>
-                    <View style={styles.loginContinar}>
-                            <Text style={styles.Buttum}>Sign In</Text>
-                    </View>
                     <View style={styles.loginContinar}>
                             <Text style={styles.Buttum}>Register</Text>
                     </View>
