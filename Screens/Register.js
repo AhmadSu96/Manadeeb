@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: '#ff6100',
         alignItems:"center",
-        paddingTop:150
+        // paddingTop:150
     },
     ButContinar:{
         height: '100%',

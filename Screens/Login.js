@@ -1,10 +1,12 @@
 import React,{useState} from 'react';
-import { View, Text, TextInput,StyleSheet} from 'react-native';
+import { TouchableOpacity,View, Text, TextInput,StyleSheet, TouchableHighlight} from 'react-native';
 import { Presets } from '../styles';
 import Layout from '../components/layout/Layout';
 
 import I18n from '../I18n'
 import { color } from 'react-native-reanimated';
+// import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Actions } from 'react-native-router-flux';
 
 // 0798449809
 
@@ -38,7 +40,9 @@ export default function Login() {
                             <Text style={styles.Buttum}>Sign In</Text>
                     </View>
                     <View style={styles.loginContinar}>
+                        <TouchableOpacity onPress = {() => Actions.Register()}>
                             <Text style={styles.Buttum}>Register</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
