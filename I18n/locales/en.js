@@ -5,4 +5,5 @@ export default {
     settings: 'Settings',
     home_page: 'Home Page',
     back: 'Back',
+    Hi_Manadeeb:"Hi Manadeeb",
 };

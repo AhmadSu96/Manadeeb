@@ -5,4 +5,5 @@ export default {
     settings: 'الإعدادات',
     home_page: 'الصفحة الرئيسية',
     back: 'رجوع',
+    Hi_Manadeeb:'مرحبا في مناديب',
 };

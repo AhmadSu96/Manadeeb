@@ -26,14 +26,14 @@ const App: () => React$Node = () => {
     }, []);
 
     const renderTemplate = () => {
-        // switch (status) {
-        //     case 'success':
+        switch (status) {
+            case 'success':
                 return <Router />;
-        //     case 'missing_lang':
-        //         return <Settings init={true} />;
-        //     case 'loading':
-        //         return <Text>Loading ...</Text>;
-        // }
+            case 'missing_lang':
+                return <Settings init={true} />;
+            case 'loading':
+                return <Text>Loading ...</Text>;
+        }
     };
 
     return renderTemplate();

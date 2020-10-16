@@ -7,6 +7,8 @@ import {
     TouchableOpacity,
     AsyncStorage,
     I18nManager,
+    ImageBackground,
+    Alert
 } from 'react-native';
 import { Presets, Colors, Spacing } from '../styles';
 
@@ -51,12 +53,29 @@ export default function Settings() {
         initSettings();
     }, []);
 
+    // Change (){
+
+    // }
+
     const renderSettings = () =>
         status === 'success' ? (
-            <View style={[Presets.fullScreen, styles.centered]}>
+            <View style={ styles.centered}>
                 <Text style={styles.label}>
                     {I18n.t('please_select_a_language')}
                 </Text>
+                <View style={styles.langcontinar}>
+                    
+                <TouchableOpacity onPress={()=> Alert.alert("English")}>
+                    <Text style={styles.langItem}>
+                            English
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=> Alert.alert("English")}>
+                    <Text style={styles.langItem}>
+                            العربية
+                    </Text>
+                </TouchableOpacity>
+                </View>
                 <Picker
                     selectedValue={selectedValue}
                     style={styles.picker}
@@ -96,6 +115,22 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: Colors.lightBlue,
+            height: '100%',
+            width: '100%',
+            backgroundColor: 'white'
+    },
+    langcontinar:{
+        flexDirection: "row",
+        // marginTop:500,
+        paddingTop:15,
+        paddingLeft:15,
+        
+    },
+
+    langItem:{
+        padding:10,
+        fontSize:15,
+        fontFamily:"lucida grande"
     },
     button: {
         backgroundColor: Colors.blue,
@@ -117,5 +152,12 @@ const styles = StyleSheet.create({
     label: {
         fontWeight: 'bold',
         fontSize: 20,
+    },
+    image: {
+        // width:"100%",
+        // flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center",
+        height:"100%"
     },
 });

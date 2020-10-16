@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import { TouchableOpacity,View, Text, TextInput,StyleSheet, TouchableHighlight} from 'react-native';
 import { Presets } from '../styles';
 import Layout from '../components/layout/Layout';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import I18n from '../I18n'
 import { color } from 'react-native-reanimated';
@@ -18,11 +19,14 @@ export default function Login() {
     return (
         <Layout>
             <View style={styles.Continar}>
+                <View style={styles.TextContinar}>
+                    <Text style={styles.Text}>Here To Get Welcome!</Text>
+                </View>
                 <View style={styles.centeredContinar}>
                     <TextInput
                          style={styles.centered}
                          onChangeText={text => onChangeUser(text)}
-                         placeholder="  Username"
+                         placeholder="Phone Number"
                          value={user}
                         />
                 </View>
@@ -31,7 +35,7 @@ export default function Login() {
                         secureTextEntry
                          style={styles.centered}
                          onChangeText={text => onChangePass(text)}
-                         placeholder=" Password"
+                         placeholder="Password"
                          value={Pass}
                         />
                 </View>
@@ -39,10 +43,19 @@ export default function Login() {
                     <View style={styles.loginContinar}>
                             <Text style={styles.Buttum}>Sign In</Text>
                     </View>
-                    <View style={styles.loginContinar}>
-                        <TouchableOpacity onPress = {() => Actions.Register()}>
-                            <Text style={styles.Buttum}>Register</Text>
+                    <View style={styles.RegisterContinar}>
+                    <TouchableOpacity onPress={()=> Actions.Register()}>
+                               <Text style={{ fontSize:12,color:"#5D4F47" }}>I don't have an account</Text>
                         </TouchableOpacity>
+                    </View> 
+                </View>
+                <View style={styles.SocialContinar}>
+                    <Text style={{ fontSize:20,color:"gray" }}>
+                        Or Sign in with
+                    </Text>
+                    <View style={styles.Social} >
+                       <Icon style={{ paddingRight: 35 }} name={'google'} size={30} color="#000" />
+                       <Icon style={{ paddingRight: 15 }} name={'facebook'} size={30} color="#3C5A9A" />
                     </View>
                 </View>
             </View>
@@ -52,6 +65,22 @@ export default function Login() {
 
 
 const styles = StyleSheet.create({
+
+    Social:{
+        flexDirection: "row",
+        paddingTop:"5%"
+    },
+    TextContinar:{
+        paddingRight:"10%",
+        paddingTop:"10%",
+        paddingLeft:"10%",
+    },
+
+    Text:{
+        fontSize:30,
+
+    },
+
     centered: {
         height: 50, 
         // borderColor: 'gray', 
@@ -59,37 +88,54 @@ const styles = StyleSheet.create({
         width:"80%",
         backgroundColor:"#fff",
         // borderRadius:15,
+        borderBottomColor:"gray",
+        borderBottomWidth:0.5,
+        
 
     },
     centeredContinar:{
         width:"100%",
         marginTop:10,
         alignItems:"center",
+        paddingTop:"3%",
     },
     loginContinar:{
-        backgroundColor:"rgba(156,69,0,0.5)",
-        width:"80%",
-        height:50,
-        marginTop:15,
+        backgroundColor:"#EF5723",
+        width:"39%",
+        // width:140,
+        height:60,
+        marginTop:10,
         alignItems:"center",
-        // borderRadius:15,
+        borderRadius:15,
+        marginLeft:"10%",
     },
     Buttum:{
-        fontSize:20,
-        paddingTop:8,
+        fontSize:12,
+        paddingTop:20,
         color:"#fff"
     },
     Continar:{
         height: '100%',
         width: '100%',
-        backgroundColor: '#ff6100',
-        alignItems:"center",
-        paddingTop:150
+        backgroundColor: '#fff',
+        // alignItems:"center",
+        marginTop:-25,
+        paddingTop:"10%",
+        borderRadius:30
     },
     ButContinar:{
-        height: '100%',
+        // height: '100%',
         width: '100%',
-        alignItems:"center",
-        marginTop:30
-    }
+        // alignItems:"center",
+        marginTop:20
+    },
+    RegisterContinar:{
+        marginLeft:"12%",
+        paddingTop:"4%",
+    },
+
+    SocialContinar:{
+        marginLeft:"12%",
+        paddingTop:"14%",
+    },
 });

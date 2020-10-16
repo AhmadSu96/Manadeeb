@@ -1,19 +1,19 @@
 import React,{useState} from 'react';
-import { TouchableOpacity,View, Text, TextInput,StyleSheet, TouchableHighlight} from 'react-native';
-import { Presets } from '../styles';
-import Layout from '../components/layout/Layout';
+import { Image,TouchableOpacity,View, Text, TextInput,StyleSheet, TouchableHighlight} from 'react-native';
+import { Presets } from '../../styles';
+import Layout from '../../components/layout/Layout';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import I18n from '../I18n'
+import I18n from '../../I18n'
 import { color } from 'react-native-reanimated';
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Actions } from 'react-native-router-flux';
 
 // 0798449809
+// Drivir.png
 
-export default function Register() {
+export default function DriverLogin() {
 
-    const [name, onChangeName] = React.useState(null);
     const [user, onChangeUser] = React.useState(null);
     const [Pass, onChangePass] = React.useState(null);
 
@@ -21,19 +21,10 @@ export default function Register() {
         <Layout>
             <View style={styles.Continar}>
                 <View style={styles.TextContinar}>
-                    <Text style={styles.Text}>Let's Create Your Account!</Text>
+                    <Image source={require('../../assest/img/Drivir.png')} style={styles.Image}/>
                 </View>
                 <View style={styles.centeredContinar}>
                     <TextInput
-                         style={styles.centered}
-                         onChangeText={text => onChangeName(text)}
-                         placeholder="Full Name"
-                         value={name}
-                        />
-                </View>
-                <View style={styles.centeredContinar}>
-                    <TextInput
-                        secureTextEntry
                          style={styles.centered}
                          onChangeText={text => onChangeUser(text)}
                          placeholder="Phone Number"
@@ -51,22 +42,24 @@ export default function Register() {
                 </View>
                 <View style={styles.ButContinar}>
                     <View style={styles.loginContinar}>
-                            <Text style={styles.Buttum}>Sign Up</Text>
+                            <Text style={styles.Buttum}>Sign In</Text>
                     </View>
                     <View style={styles.RegisterContinar}>
-                        <TouchableOpacity onPress={()=> Actions.login()}>
-                               <Text style={{ fontSize:12,color:"#5D4F47" }}>I already have an account</Text>
+                    <TouchableOpacity onPress={()=> Actions.Register()}>
+                               <Text style={{ fontSize:12,color:"#5D4F47" }}>I don't have an account</Text>
                         </TouchableOpacity>
                     </View> 
                 </View>
                 <View style={styles.SocialContinar}>
-                    <Text style={{ fontSize:14,color:"#5D4F47" }}>
-                        Or Sign in with
+                    <Text style={{ fontSize:15,color:"#5D4F47" }}>
+                        our drivrs is second to none
                     </Text>
-                    <View style={styles.Social} >
-                       <Icon style={{ paddingRight: 35 }} name={'google'} size={25} color="#000" />
-                       <Icon style={{ paddingRight: 15 }} name={'facebook'} size={25} color="#3C5A9A" />
-                    </View>
+                    <Text style={{ fontSize:15,color:"#5D4F47" }}> 
+                        to be one of our part please contact us
+                    </Text>
+                    <Text style={{ paddingTop:"5%",fontSize:29,color:"gray" }}>
+                        +974 33 44 55 66 0
+                    </Text>
                 </View>
             </View>
          </Layout>
@@ -78,20 +71,13 @@ const styles = StyleSheet.create({
 
     Social:{
         flexDirection: "row",
-        paddingTop:"10%"
+        paddingTop:"5%"
     },
     TextContinar:{
-        paddingRight:"40%",
-        paddingTop:"13%",
-        paddingLeft:"10%",
-        marginBottom:"5%",
+       
     },
-
     Text:{
-        fontSize:24,
-        color:"#5D4F47",
-        fontWeight:'bold',
-
+        fontSize:30,
     },
 
     centered: {
@@ -108,7 +94,7 @@ const styles = StyleSheet.create({
     },
     centeredContinar:{
         width:"100%",
-        // marginTop:10,
+        marginTop:10,
         alignItems:"center",
         paddingTop:"3%",
     },
@@ -117,13 +103,13 @@ const styles = StyleSheet.create({
         width:"39%",
         // width:140,
         height:60,
-        marginTop:15,
+        // marginTop:5,
         alignItems:"center",
         borderRadius:15,
         marginLeft:"10%",
     },
     Buttum:{
-        fontSize:14,
+        fontSize:12,
         paddingTop:20,
         color:"#fff"
     },
@@ -133,7 +119,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         // alignItems:"center",
         marginTop:-25,
-        paddingTop:"5%",
+        paddingTop:"4%",
         borderRadius:30
     },
     ButContinar:{
@@ -144,11 +130,15 @@ const styles = StyleSheet.create({
     },
     RegisterContinar:{
         marginLeft:"12%",
-        paddingTop:"3%",
+        paddingTop:"4%",
     },
 
     SocialContinar:{
         marginLeft:"12%",
-        paddingTop:"8%",
+        paddingTop:"5%",
+    },
+    Image:{
+        width:"100%",
+        height:185,
     },
 });
