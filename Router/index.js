@@ -6,6 +6,7 @@ import Login from '../Screens/Login';
 import Register from '../Screens/Register';
 import DriverLogin from '../Screens/Driver/DriverLogin';
 import DriverPortal from '../Screens/Driver/DriverPortal';
+import Test from '../Screens/Test';
 export default function index() {
     return (
         <Router>
@@ -14,7 +15,9 @@ export default function index() {
                 {/* <Scene key="DriverLogin" component={DriverLogin} hideNavBar /> */}
                 {/* <Scene key="Login" component={Login} hideNavBar />                 */}
                 {/* <Scene key="Register" component={Register} hideNavBar />                 */}
-                {/* <Scene key="DriverPortal" component={DriverPortal} hideNavBar /> */}
+                <Scene key="DriverPortal" component={DriverPortal} hideNavBar />
+
+                <Scene key="Test" component={Test} hideNavBar />
                 <Scene key="Settings" component={Settings} hideNavBar />
             </Stack>
         </Router>
