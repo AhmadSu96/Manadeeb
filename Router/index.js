@@ -15,10 +15,10 @@ export default function index() {
                 {/* <Scene key="DriverLogin" component={DriverLogin} hideNavBar /> */}
                 {/* <Scene key="Login" component={Login} hideNavBar />                 */}
                 {/* <Scene key="Register" component={Register} hideNavBar />                 */}
-                <Scene key="DriverPortal" component={DriverPortal} hideNavBar />
-
                 <Scene key="Test" component={Test} hideNavBar />
-                <Scene key="Settings" component={Settings} hideNavBar />
+                {/* <Scene key="DriverPortal" component={DriverPortal} hideNavBar /> */}
+
+                {/* <Scene key="Settings" component={Settings} hideNavBar /> */}
             </Stack>
         </Router>
     );
