@@ -39,9 +39,12 @@ export default function Login() {
                          value={Pass}
                         />
                 </View>
+                
                 <View style={styles.ButContinar}>
                     <View style={styles.loginContinar}>
+                        <TouchableOpacity onPress={()=> Actions.DriverPortal()}>
                             <Text style={styles.Buttum}>Sign In</Text>
+                        </TouchableOpacity>
                     </View>
                     <View style={styles.RegisterContinar}>
                     <TouchableOpacity onPress={()=> Actions.Register()}>
@@ -50,13 +53,9 @@ export default function Login() {
                     </View> 
                 </View>
                 <View style={styles.SocialContinar}>
-                    <Text style={{ fontSize:20,color:"gray" }}>
-                        Or Sign in with
-                    </Text>
-                    <View style={styles.Social} >
-                       <Icon style={{ paddingRight: 35 }} name={'google'} size={30} color="#000" />
-                       <Icon style={{ paddingRight: 15 }} name={'facebook'} size={30} color="#3C5A9A" />
-                    </View>
+                        <TouchableOpacity onPress={()=> Actions.DriverLogin()}>
+                          <Text style={{ fontSize:20,color:"gray" }}>Or Sign in with as Driver</Text>
+                        </TouchableOpacity>
                 </View>
             </View>
          </Layout>
