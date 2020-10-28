@@ -1,86 +1,109 @@
-import React, { Component } from "react";
-import { Dimensions, Slider, SafeAreaView, Picker, Text, StyleSheet, View, TextInput, Image, Button, ScrollView, ImageBackground } from "react-native";
-import MapView, { PROVIDER_GOOGLE, Marker, Callout, AnimatedRegion, Animated, UrlTile } from 'react-native-maps';
-import { TouchableOpacity } from "react-native-gesture-handler";
-const image = { uri: "https://reactjs.org/logo-og.png" };
+// import React, { Component } from 'react'
+// import { StyleSheet,TouchableOpacity,TextInput,View, Text, Dimensions, TouchableHighlight, TextInputComponent } from 'react-native'
+// import MapView ,{PROVIDER_GOOGLE,Marker} from 'react-native-maps';
+// import { Actions } from 'react-native-router-flux';
+// import Layout from '../../components/layout/Layout';
 
-class Map extends React.Component {
+// import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
-
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            coordinates: {
-                latitude: 25.196647,
-                latitudeDelta: 1.0922,
-                longitudeDelta: 1.0421,
-                longitude: 51.2322,
-            },
-
-            categorys: this.props.navigation.state.params.data.categorys,
-            Type: this.props.navigation.state.params.data.Type,
-            Order: this.props.navigation.state.params.data.Order,
-            Name:this.props.navigation.state.params.data.Name,
-            phone:this.props.navigation.state.params.data.phone,
-        }
-
-    }
-
-    chooseCategory(navigation) {
-
-        console.log(this.state);
-        navigation.navigate('showOrder', { data: this.state });
-    }
-
-    render() {
-
-      /*  console.log(this.props.navigation.state.params.data)
-        console.warn(this.props.navigation.state.params.data);*/
-
-        const width = 20;
-        return (
-
-            <ScrollView style={{ height: "100%", backgroundColor: "#ae1fcfa" }} >
-
-                <View style={{ height: "100%", backgroundColor: "#ae1fcfa" }}>
+// import Geolocation from '@react-native-community/geolocation';
 
 
-                    <MapView 
-                        provider={PROVIDER_GOOGLE}
-                        style={styles.mapStyle}
-                        region={this.state.coordinates}
+// //
+// //
 
-                        onRegionChangeComplete={result => this.setState({ coordinates: result })}
+// const width = Dimensions.get('window').width 
+// const height = Dimensions.get('window').height
 
-                        onDragEnd={(e) => this.setState({ coordinates: e })} 
-                    >
-                        <Marker.Animated
-                            coordinate={this.state.coordinates}
-                            onDragEnd={(e) => this.setState({ coordinates: e.nativeEvent.coordinate })}
-                        />
+// const columbusCircleCoordinates = [
+//     25.354826, 51.183884
+// ];
 
-                    </MapView>
-                    <View style={[styles.Button1, { borderBottomLeftRadius: 0, borderTopRightRadius: 0, }]}>
+// export default class Test extends Component {
 
-                        <TouchableOpacity onPress={() => this.chooseCategory(this.props.navigation)} >
+//   state = {
+//     latitude: 25.285446,
+//     longitude: 51.531040,
+//     coordinates: {
+//       latitude: 25.196647,
+//       latitudeDelta: 1.0922,
+//       longitudeDelta: 1.0421,
+//       longitude: 51.2322,
+//   },
+//   }
 
-                            <Text style={styles.TextButton}> Submit</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
+//   componentDidMount(){
+     
+//     if(this.props.data){
+//       this.setState({latitude:this.props.data.lat});
+//       this.setState({longitude:this.props.data.lng});
+    
+//     }else{
+//       Geolocation.getCurrentPosition(data =>{
+//         this.setState({latitude:data.coords.latitude});
+//         this.setState({longitude:data.coords.longitude});
+//       }); 
 
+//     }
+   
+// }
 
+//     render() {
+//       // console.log(this.props);
+//       return (
+//         <Layout>
+//             <View style={styles.Continar}>
+//                 <View style={{ marginTop:0}}>
+//                       <MapView 
+//                         provider={PROVIDER_GOOGLE}
+//                         style={{ height:height*0.83,width:width*1  }}
+//                         region={this.state.coordinates}
 
+                        
 
+//                         // onDragEnd={(e) => this.setState({ coordinates: e })} 
+//                     >
+//                         <Marker.Animated
+//                             coordinate={this.state.coordinates}
+//                             onRegionChangeComplete={result => this.setState({ coordinates: result })}
+//                         />
 
+//                     </MapView>
+//                 </View>
+//                 <View style={styles.serchContinar}>
+//                        <TouchableOpacity onPress={()=> Actions.search_location()}> 
+//                            <Text style={styles.serch}>Search</Text>
+//                       </TouchableOpacity> 
+//                 </View>
+//             </View>
+//          </Layout>
+//         )
+//     }
+// }
 
-            </ScrollView>
-        );
+// const styles = StyleSheet.create({
 
-
-
-    }
-}
-const widthWindow = Dimensions.get('window').width;
-const heightWindow = Dimensions.get('window').height;
+//   Continar:{
+//     height: '100%',
+//     width: '100%',
+//     backgroundColor: '#fff',
+//     // alignItems:"center",
+//     // marginTop:-25,
+//     // paddingTop:"10%",
+//     borderRadius:30
+// },
+// serch:{
+//   color:'gray', 
+//   backgroundColor:"#fff",
+//   padding:10,
+//   width:width*0.75,
+//   borderRadius:30
+// },
+// serchContinar:{
+//   backgroundColor:"orange",
+//   width:width*0.85,
+//   marginTop:-90,
+//   padding:1,
+//   borderRadius:30
+// }
+// });
