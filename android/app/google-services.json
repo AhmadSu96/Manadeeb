@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "53372339234",
+    "firebase_url": "https://manadeeb-6d286.firebaseio.com",
+    "project_id": "manadeeb-6d286",
+    "storage_bucket": "manadeeb-6d286.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53372339234:android:066b687f6ab54ea9c3b67b",
+        "android_client_info": {
+          "package_name": "com.mandeeb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "53372339234-u2b44rmtg80bsi602sth5ue29hm76sus.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAF3osA1T5j_O-0AfQjTh7f0Oc6hzJSABI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "53372339234-u2b44rmtg80bsi602sth5ue29hm76sus.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

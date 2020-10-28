@@ -13,11 +13,11 @@ export default function index() {
     return (
         <Router>
             <Stack key="root">
-                {/* <Scene key="Home" component={Home} hideNavBar /> */}
+                {/* <Scene key="TEST" component={Test} hideNavBar />
                 <Scene key="Login" component={Login} hideNavBar /> 
                 <Scene key="DriverLogin" component={DriverLogin} hideNavBar />
                 <Scene key="Register" component={Register} hideNavBar />                
-                <Scene key="search_location" component={search_location} hideNavBar />
+                <Scene key="search_location" component={search_location} hideNavBar /> */}
                 <Scene key="DriverPortal" component={DriverPortal} hideNavBar />
 
                 <Scene key="Settings" component={Settings} hideNavBar /> 
