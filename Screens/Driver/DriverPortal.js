@@ -7,60 +7,53 @@ import Geocoder from 'react-native-geocoding';
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Geolocation from '@react-native-community/geolocation';
+import Current_location from '../Map_function/Current_location';
+import  Directions from'../Map_function/Directions';
 
 const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
 
-const columbusCircleCoordinates = [
-  25.354826, 51.183884
-];
-
 function decode(t,e){
-  for(var n,o,u=0,l=0,r=0,d= [],h=0,i=0,a=null,c=Math.pow(10,e||5);u<t.length;){a=null,h=0,i=0;do a=t.charCodeAt(u++)-63,i|=(31&a)<<h,h+=5;while(a>=32);n=1&i?~(i>>1):i>>1,h=i=0;do a=t.charCodeAt(u++)-63,i|=(31&a)<<h,h+=5;while(a>=32);o=1&i?~(i>>1):i>>1,l+=n,r+=o,d.push([l/c,r/c])}return d=d.map(function(t){return{latitude:t[0],longitude:t[1]}})}
+  for(var n,o,u=0,l=0,r=0,d= [],h=0,i=0,a=null,c=Math.pow(10,e||5);u<t.length;){a=null,h=0,i=0;do a=t.charCodeAt(u++)-63,i|=(31&a)<<h,h+=5;while(a>=32);n=1&i?~(i>>1):i>>1,h=i=0;do a=t.charCodeAt(u++)-63,i|=(31&a)<<h,h+=5;while(a>=32);o=1&i?~(i>>1):i>>1,l+=n,r+=o,d.push([l/c,r/c])}return d=d.map(function(t){return{latitude:t[0],longitude:t[1]}})
+} 
 
 
 export default class Test extends Component {
 
   state = {
     from: {
-      latitude: 31.9539494,
-      longitude: 35.910635,
+      latitude: 25.354826,
+      longitude: 51.183884,
     },
     to: {
       latitude: 25.285446,
       longitude: 51.531040,
     },
-    Scanedcoords: true,
+    Scanedcoords: false,
     firstcoords: false,
     coords:[],
 
   }
 
   componentDidMount() {
-    Geolocation.getCurrentPosition(data => {
-      this.setState({ from: { latitude: data.coords.latitude, longitude: data.coords.longitude } });
-      this.setState({ firstcoords: true });
-    });
-    this.renderRoute ();
+   
   }
 
-  
-  renderRoute () {
+  Directions (from,to) {
+
     const mode = 'driving'; // 'walking';
-    const origin = '31.9587968,35.918278';
-    const destination = '31.9539494,35.910635';
+    const origin = from.latitude + ',' + from.longitude;
+    const destination = to.latitude + ',' + to.longitude;
+  
     const APIKEY = 'AIzaSyBGWLWDLiIhZm7kshUzjdk0z-GKV3rhF6U';
     const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&key=${APIKEY}&mode=${mode}`;
-
-fetch(url)
-    .then(response => response.json())
-    .then(responseJson => {
-        if (responseJson.routes.length) {
-            this.setState({
-                coords: decode(responseJson.routes[0].overview_polyline.points) // definition below
-            });
-        }
-    }).catch(e => {console.warn(e)});
+  
+     fetch(url).then(response => response.json())
+               .then(responseJson => {
+                             if (responseJson.routes.length) {
+                              this.setState({coords:decode(responseJson.routes[0].overview_polyline.points)});
+                                }
+              }).catch(e => {console.warn(e)});
   }
 
   initialize(description) {
@@ -78,7 +71,7 @@ fetch(url)
           this.setState({ to: { latitude: location.lat, longitude: location.lng } });
           // this.setState({ coords: {location1:this.state.from,location2:this.state.to}});
           this.setState({ Scanedcoords: true });
-          console.log(this.state)
+          this.Directions(this.state.from,this.state.to)
         }
       })
       .catch(error => console.warn(error));
@@ -92,13 +85,15 @@ fetch(url)
       <Layout>
         <View style={styles.Continar}>
           <View style={{ marginTop: 0 }}>
+            {!this.state.firstcoords && <Current_location/>}
+            { this.state.firstcoords &&
             <MapView
               style={{ height: height * 0.83, width: width * 1 }}
               initialRegion={{
                 latitude: this.state.from.latitude,
                 longitude: this.state.from.longitude,
-                latitudeDelta: 0.0252,
-                longitudeDelta: 0.0251,
+                latitudeDelta: 0.7252,
+                longitudeDelta: 0.7251,
               }}
             >
               {this.state.coords &&
@@ -108,21 +103,23 @@ fetch(url)
                 strokeColors={'#7F0000'}
             />
               }
-              {this.state.firstcoords &&
                 <Marker
                   coordinate={{
                     latitude: this.state.from.latitude,
                     longitude: this.state.from.longitude
                   }}
-                />}
+                />
                 {this.state.Scanedcoords &&
                 <Marker
-                  coordinate={{
-                    latitude: this.state.to.latitude,
-                    longitude: this.state.to.longitude
-                  }}
-                />}
+                coordinate={{
+                  latitude: this.state.to.latitude,
+                  longitude: this.state.to.longitude
+                }}
+              />
+              
+                }
             </MapView>
+            }
           </View>
           <View style={styles.serchContinar}>
             <GooglePlacesAutocomplete
@@ -151,7 +148,7 @@ fetch(url)
             </TouchableOpacity>
           </View>
           <View style={styles.SubmitContinar}>
-            <TouchableOpacity onPress={() => this.whereTo()}>
+            <TouchableOpacity>
               <Text style={styles.Submit}>Where to</Text>
             </TouchableOpacity>
           </View>
