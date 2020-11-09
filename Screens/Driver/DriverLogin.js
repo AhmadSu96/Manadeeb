@@ -46,15 +46,15 @@ export default function DriverLogin() {
                     </View>
                     <View style={styles.RegisterContinar}>
                     <TouchableOpacity onPress={()=> Actions.Register()}>
-                               <Text style={{ fontSize:12,color:"#5D4F47" }}>I don't have an account</Text>
+                               <Text style={{ fontSize:15,color:"#5D4F47" }}>I don't have an account</Text>
                         </TouchableOpacity>
                     </View> 
                 </View>
                 <View style={styles.SocialContinar}>
-                    <Text style={{ fontSize:15,color:"#5D4F47" }}>
+                    <Text style={{ fontSize:17,color:"#5D4F47" }}>
                         our drivrs is second to none
                     </Text>
-                    <Text style={{ fontSize:15,color:"#5D4F47" }}> 
+                    <Text style={{ fontSize:17,color:"#5D4F47" }}> 
                         to be one of our part please contact us
                     </Text>
                     <Text style={{ paddingTop:"5%",fontSize:29,color:"gray" }}>
@@ -109,8 +109,8 @@ const styles = StyleSheet.create({
         marginLeft:"10%",
     },
     Buttum:{
-        fontSize:12,
-        paddingTop:20,
+        fontSize:18,
+        paddingTop:15,
         color:"#fff"
     },
     Continar:{
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     },
     RegisterContinar:{
         marginLeft:"12%",
-        paddingTop:"4%",
+        paddingTop:"5%",
     },
 
     SocialContinar:{

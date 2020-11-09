@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { TouchableOpacity,View, Text, TextInput,StyleSheet, TouchableHighlight} from 'react-native';
+import { Alert,TouchableOpacity,View, Text, TextInput,StyleSheet, TouchableHighlight} from 'react-native';
 import { Presets } from '../styles';
 import Layout from '../components/layout/Layout';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -10,6 +10,18 @@ import { color } from 'react-native-reanimated';
 import { Actions } from 'react-native-router-flux';
 
 // 0798449809
+
+function Check(U,P){
+
+    if(U== "111111" && P=="123456")
+    {
+        Actions.Oredr()
+    }else{
+        Alert.alert("Login Failed");
+    }
+
+}
+
 
 export default function Login() {
 
@@ -41,20 +53,20 @@ export default function Login() {
                 </View>
                 
                 <View style={styles.ButContinar}>
-                    <View style={styles.loginContinar}>
-                        <TouchableOpacity onPress={()=> Actions.DriverPortal()}>
+                    <TouchableOpacity onPress={()=> Check(user,Pass) }>
+                        <View style={styles.loginContinar}>
                             <Text style={styles.Buttum}>Sign In</Text>
+                        </View>
                         </TouchableOpacity>
-                    </View>
-                    <View style={styles.RegisterContinar}>
+                <View style={styles.RegisterContinar}>
                     <TouchableOpacity onPress={()=> Actions.Register()}>
-                               <Text style={{ fontSize:12,color:"#5D4F47" }}>I don't have an account</Text>
+                               <Text style={{ fontSize:15,color:"#5D4F47" }}>I don't have an account</Text>
                         </TouchableOpacity>
                     </View> 
                 </View>
                 <View style={styles.SocialContinar}>
                         <TouchableOpacity onPress={()=> Actions.DriverLogin()}>
-                          <Text style={{ fontSize:20,color:"gray" }}>Or Sign in with as Driver</Text>
+                          <Text style={{ fontSize:21,color:"gray" }}>Or Sign in with as Driver</Text>
                         </TouchableOpacity>
                 </View>
             </View>
@@ -109,8 +121,8 @@ const styles = StyleSheet.create({
         marginLeft:"10%",
     },
     Buttum:{
-        fontSize:12,
-        paddingTop:20,
+        fontSize:18,
+        paddingTop:15,
         color:"#fff"
     },
     Continar:{
@@ -130,7 +142,7 @@ const styles = StyleSheet.create({
     },
     RegisterContinar:{
         marginLeft:"12%",
-        paddingTop:"4%",
+        paddingTop:"8%",
     },
 
     SocialContinar:{

@@ -54,12 +54,12 @@ export default function Register() {
                             <Text style={styles.Buttum}>Sign Up</Text>
                     </View>
                     <View style={styles.RegisterContinar}>
-                        <TouchableOpacity onPress={()=> Actions.login()}>
-                               <Text style={{ fontSize:12,color:"#5D4F47" }}>I already have an account</Text>
+                        <TouchableOpacity onPress={()=> Actions.Login()}>
+                               <Text style={{ fontSize:15,color:"#5D4F47" }}>I already have an account</Text>
                         </TouchableOpacity>
                     </View> 
                 </View>
-                <View style={styles.SocialContinar}>
+                {/* <View style={styles.SocialContinar}>
                     <Text style={{ fontSize:14,color:"#5D4F47" }}>
                         Or Sign in with
                     </Text>
@@ -67,7 +67,7 @@ export default function Register() {
                        <Icon style={{ paddingRight: 35 }} name={'google'} size={25} color="#000" />
                        <Icon style={{ paddingRight: 15 }} name={'facebook'} size={25} color="#3C5A9A" />
                     </View>
-                </View>
+                </View> */}
             </View>
          </Layout>
     );
@@ -123,8 +123,8 @@ const styles = StyleSheet.create({
         marginLeft:"10%",
     },
     Buttum:{
-        fontSize:14,
-        paddingTop:20,
+        fontSize:18,
+        paddingTop:15,
         color:"#fff"
     },
     Continar:{
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     },
     RegisterContinar:{
         marginLeft:"12%",
-        paddingTop:"3%",
+        paddingTop:"7%",
     },
 
     SocialContinar:{
