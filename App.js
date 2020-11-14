@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { Text, AsyncStorage, I18nManager } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Text, AsyncStorage, I18nManager} from 'react-native';
 
-import I18n from './I18n/index';
+import I18n from './src/I18n/index';
 
-import Settings from './Screens/Settings';
-import Router from './Router';
+import Settings from './src/Screens/Settings';
+import Router from './src/Router';
 
 import 'react-native-gesture-handler';
+import {Provider} from 'react-redux';
+import {store} from './src/store';
 
 const App: () => React$Node = () => {
     const [status, setStatus] = useState('loading');
@@ -36,7 +38,7 @@ const App: () => React$Node = () => {
         }
     };
 
-    return renderTemplate();
+    return <Provider store={store}>{renderTemplate()}</Provider>;
 };
 
 export default App;
